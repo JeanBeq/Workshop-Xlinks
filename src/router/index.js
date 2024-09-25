@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import LandingPage from '../views/landingPage.vue'
+import LandingPage from '../views/LandingPage.vue'
 import AcquereurForm from '../views/AcquereurForm.vue'
 import CedantForm from '../views/CedantForm.vue'
 
@@ -26,4 +26,4 @@ const router = createRouter({
   routes
 })
 
-export default router   
+export default router
