@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import LandingPage from '../views/LandingPage.vue'
+import HomePage from '../views/HomePage.vue'
 import AcquereurForm from '../views/AcquereurForm.vue'
 import CedantForm from '../views/CedantForm.vue'
 
@@ -7,7 +7,7 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: LandingPage
+    component: HomePage
   },
   {
     path: '/acquereur',
