@@ -10,8 +10,12 @@
             </div>
           </div>
           <div class="flex items-center">
-            <router-link to="/acquereur" class="text-gray-700 hover:bg-gray-100 px-3 py-2 rounded-md text-sm font-medium">Acquéreur</router-link>
-            <router-link to="/cedant" class="text-gray-700 hover:bg-gray-100 px-3 py-2 rounded-md text-sm font-medium">Cédant</router-link>
+            <router-link to="/acquereur" v-slot="{ isActive }">
+              <a :class="['px-3 py-2 rounded-md text-sm font-medium', isActive ? 'bg-blue-500 text-white' : 'text-gray-700 hover:bg-gray-100']">Acquéreur</a>
+            </router-link>
+            <router-link to="/cedant" v-slot="{ isActive }">
+              <a :class="['px-3 py-2 rounded-md text-sm font-medium', isActive ? 'bg-blue-500 text-white' : 'text-gray-700 hover:bg-gray-100']">Cédant</a>
+            </router-link>
           </div>
         </div>
       </div>
@@ -45,5 +49,6 @@ import { RouterLink, RouterView } from 'vue-router'
 import ButtonComponent from './components/ButtonComponent.vue'
 
 const scheduleAppointment = () => {
+  // Logique pour planifier un rendez-vous
 }
 </script>
