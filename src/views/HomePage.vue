@@ -1,11 +1,22 @@
 <template>
   <main class="container mx-auto px-4 pt-24">
-    <section id="newsletter" class="py-20">
-      <h1 class="text-4xl md:text-5xl font-bold mb-6 text-center">La newsletter de la cession d'entreprises</h1>
-      <p class="text-xl text-center mb-8 max-w-2xl mx-auto">
-        Chaque lundi, recevez directement dans votre boite email le dossier complet de 3 entreprises "sélectionnées" à transmettre ou reprendre.
-      </p>
+
+    <section>
+      <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16">
+        <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl light:text-dark">La newsletter de la cession d'entreprises</h1>
+        <p class="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 lg:px-48 light:text-gray-400">
+          Recevez directement dans votre boite email les dossiers complet des  entreprises qui vous correspondent</p>
+        <div class="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0">
+          <router-link to="/cedant" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
+            Je suis cédant
+          </router-link>
+          <router-link to="/acquereur" class=" ml-4 inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-blue-700 rounded-lg border-blue-700 border-2 hover:text-white hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
+            Je suis acquéreur
+          </router-link>
+        </div>
+      </div>
     </section>
+
 
     <section id="dossiers" class="py-20">
       <h2 class="text-3xl font-bold mb-6">Des dossiers qualifiés</h2>
