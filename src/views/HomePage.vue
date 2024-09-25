@@ -18,7 +18,7 @@
     </section>
 
 
-    <section id="dossiers" class="py-20">
+    <section id="dossiers" class="py-20 mx-auto w-fit">
       <h2 class="text-3xl font-bold mb-6">Des dossiers qualifiés</h2>
       <div class="grid md:grid-cols-2 gap-8">
         <div class="bg-white rounded-lg shadow-md p-6 transition-transform hover:scale-105">
@@ -38,7 +38,7 @@
       </div>
     </section>
 
-    <section id="stats" class="py-20">
+    <section id="stats" class="py-20 mx-auto w-fit">
       <h2 class="text-3xl font-bold mb-6 text-center">Notre communauté en chiffres</h2>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
         <div class="bg-white rounded-lg shadow-md p-6 transition-transform hover:scale-105">
@@ -64,7 +64,7 @@
       </div>
     </section>
 
-    <section id="contact" class="py-20">
+    <section id="contact" class="py-20 mx-auto w-fit">
       <h2 class="text-3xl font-bold mb-6">Vous souhaitez diffuser une opportunité d'acquisition ?</h2>
       <p class="mb-4">
         Que vous souhaitiez transmettre votre entreprise ou que vous interveniez en tant que conseil d'un cédant, xLINKS.fr est la solution rapide et simple pour présenter votre dossier auprès de la plus grande base de repreneurs en France.
