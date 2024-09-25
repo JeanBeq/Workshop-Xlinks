@@ -1,52 +1,73 @@
 <template>
-    <div class="min-h-screen bg-gray-100">
-      <main>
-        <!-- Section principale -->
-        <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
-          <!-- Présentation de la newsletter -->
-          <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-6 mb-6">
-            <h1 class="text-3xl font-bold text-gray-900 mb-4">
-              XLINKS - La newsletter de la cession d'entreprises
-            </h1>
-            <h2 class="text-2xl font-semibold text-gray-900 mb-4">
-              Chaque lundi, recevez directement dans votre boite email le dossier complet de 3 entreprises "sélectionnées" à transmettre ou reprendre.
-            </h2>
-            <div class="mt-4 space-x-4">
-              <router-link to="/acquereur" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                Je suis acquéreur
-              </router-link>
-              <router-link to="/cedant" class="inline-block bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                Je suis cédant
-              </router-link>
-            </div>
-          </div>
-  
-          <!-- Dossiers qualifiés -->
-          <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-6 mb-6">
-            <h3 class="text-xl font-semibold text-gray-900 mb-4">Des dossiers qualifiés</h3>
-            <p class="text-gray-700">
-              Chaque lundi, nous vous transmettons 3 dossiers "qualifiés" d'entreprise à reprendre. Vous avez ensuite 7 jours pour vous positionner, et débuter le processus de transmission de manière exclusive directement avec le cédant et/ou son conseil.
-            </p>
-            <p class="text-gray-700 mt-4">
-              PME ou TPE - Tous secteurs d'activité - de 100 KEUR à 10 MEUR de CA
-            </p>
-          </div>
-  
-          <!-- Statistiques -->
-          <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-6 mb-6">
-            <h3 class="text-xl font-semibold text-gray-900 mb-4">12 456 repreneurs enregistrés !</h3>
-            <p class="text-gray-700">
-              Décembre 2022 : 6 780 entreprises en recherche de croissance externe / 4 896 repreneurs individuels / 436 Fonds d'investissement / 344 conseils
-            </p>
-            <p class="text-gray-700 mt-4">
-              xLINKS.fr est la première base de données de repreneurs d'entreprises en France. Notre processus de diffusion vous garantit la plus large diffusion en toute confidentialité : <a href="#" class="text-blue-600 hover:underline">en savoir plus</a>
-            </p>
-          </div>
+  <main class="container mx-auto px-4 pt-24">
+    <section id="newsletter" class="py-20">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6 text-center">La newsletter de la cession d'entreprises</h1>
+      <p class="text-xl text-center mb-8 max-w-2xl mx-auto">
+        Chaque lundi, recevez directement dans votre boite email le dossier complet de 3 entreprises "sélectionnées" à transmettre ou reprendre.
+      </p>
+    </section>
+
+    <section id="dossiers" class="py-20">
+      <h2 class="text-3xl font-bold mb-6">Des dossiers qualifiés</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-white rounded-lg shadow-md p-6 transition-transform hover:scale-105">
+          <FileCheck class="h-12 w-12 text-blue-600 mb-4" />
+          <h3 class="text-xl font-semibold mb-2">Processus exclusif</h3>
+          <p>
+            Vous avez 7 jours pour vous positionner et débuter le processus de transmission de manière exclusive directement avec le cédant et/ou son conseil.
+          </p>
         </div>
-      </main>
-    </div>
-  </template>
-  
-  <script setup>
-  // Pas besoin de logique supplémentaire ici
-  </script>
+        <div class="bg-white rounded-lg shadow-md p-6 transition-transform hover:scale-105">
+          <Building2 class="h-12 w-12 text-blue-600 mb-4" />
+          <h3 class="text-xl font-semibold mb-2">Diversité des entreprises</h3>
+          <p>
+            PME ou TPE - Tous secteurs d'activité - de 100 KEUR à 10 MEUR de CA
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="stats" class="py-20">
+      <h2 class="text-3xl font-bold mb-6 text-center">Notre communauté en chiffres</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div class="bg-white rounded-lg shadow-md p-6 transition-transform hover:scale-105">
+          <Users class="h-12 w-12 text-blue-600 mx-auto mb-4" />
+          <p class="text-3xl font-bold">12 456</p>
+          <p class="text-gray-600">Repreneurs enregistrés</p>
+        </div>
+        <div class="bg-white rounded-lg shadow-md p-6 transition-transform hover:scale-105">
+          <Building class="h-12 w-12 text-blue-600 mx-auto mb-4" />
+          <p class="text-3xl font-bold">6 780</p>
+          <p class="text-gray-600">Entreprises en recherche</p>
+        </div>
+        <div class="bg-white rounded-lg shadow-md p-6 transition-transform hover:scale-105">
+          <UserPlus class="h-12 w-12 text-blue-600 mx-auto mb-4" />
+          <p class="text-3xl font-bold">4 896</p>
+          <p class="text-gray-600">Repreneurs individuels</p>
+        </div>
+        <div class="bg-white rounded-lg shadow-md p-6 transition-transform hover:scale-105">
+          <Briefcase class="h-12 w-12 text-blue-600 mx-auto mb-4" />
+          <p class="text-3xl font-bold">780</p>
+          <p class="text-gray-600">Fonds et conseils</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="py-20">
+      <h2 class="text-3xl font-bold mb-6">Vous souhaitez diffuser une opportunité d'acquisition ?</h2>
+      <p class="mb-4">
+        Que vous souhaitiez transmettre votre entreprise ou que vous interveniez en tant que conseil d'un cédant, xLINKS.fr est la solution rapide et simple pour présenter votre dossier auprès de la plus grande base de repreneurs en France.
+      </p>
+      <p class="mb-6">
+        Notre processus vous garantit la plus grande confidentialité.
+      </p>
+      <router-link to="/cedant" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full transition-colors">
+        Je m'enregistre
+      </router-link>
+    </section>
+  </main>
+</template>
+
+<script setup>
+import {Briefcase, Building, Building2, FileCheck, UserPlus, Users} from "lucide-vue-next";
+</script>
