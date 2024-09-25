@@ -6,7 +6,7 @@
         <div class="flex justify-between h-16">
           <div class="flex">
             <div class="flex-shrink-0 flex items-center">
-              <router-link to="/" class="text-xl font-bold text-gray-800">XLINKS</router-link>
+              <router-link to="/" class="text-xl font-bold text-gray-800"><img class="object-cover w-40" src="../public/logo.png" alt=""></router-link>
             </div>
           </div>
           <div class="flex items-center">
