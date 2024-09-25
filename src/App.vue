@@ -14,7 +14,7 @@
               <a :class="['px-3 py-2 rounded-md text-sm font-medium', isActive ? 'bg-blue-500 text-white' : 'text-gray-700 hover:bg-gray-100']">Acquéreur</a>
             </router-link>
             <router-link to="/cedant" v-slot="{ isActive }">
-              <a :class="['px-3 py-2 rounded-md text-sm font-medium', isActive ? 'bg-blue-500 text-white' : 'text-gray-700 hover:bg-gray-100']">Cédant</a>
+              <a :class="['px-3 py-2 rounded-md text-sm font-medium', isActive ? 'bg-green-600 text-white' : 'text-gray-700 hover:bg-gray-100']">Cédant</a>
             </router-link>
           </div>
         </div>
