@@ -70,6 +70,18 @@
                       <label for="averageRevenue" class="block text-gray-700 text-sm font-bold mb-2">Niveau moyen de CA sur les 2 dernières années</label>
                       <input v-model="form.averageRevenue" type="number" id="averageRevenue" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
                     </div>
+                    <div class="mb-4 sm:col-span-2">
+                      <label for="fundsAvailable" class="block text-gray-700 text-sm font-bold mb-2">Fonds disponibles</label>
+                      <input v-model="form.fundsAvailable" type="number" id="fundsAvailable" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                    </div>
+                    <div class="mb-4 sm:col-span-2">
+                      <label for="otherInformation" class="block text-gray-700 text-sm font-bold mb-2">Autres informations</label>
+                      <textarea v-model="form.otherInformation" id="otherInformation" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required></textarea>
+                    </div>
+                    <div class="mb-4 sm:col-span-2">
+                      <label for="targetAcquisitionCalendar" class="block text-gray-700 text-sm font-bold mb-2">Calendrier d’acquisition cible</label>
+                      <input v-model="form.targetAcquisitionCalendar" type="text" id="targetAcquisitionCalendar" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                    </div>
                   </div>
                   <div class="flex items-center justify-between">
                     <button type="button" @click="prevStep" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
@@ -91,6 +103,7 @@
 
 <script setup>
 import { reactive, ref, computed } from 'vue'
+import axios from 'axios'
 
 const form = reactive({
   name: '',
@@ -102,7 +115,10 @@ const form = reactive({
   targetSector: '',
   targetEmployees: '',
   targetLocation: '',
-  averageRevenue: ''
+  averageRevenue: '',
+  fundsAvailable: '',
+  otherInformation: '',
+  targetAcquisitionCalendar: ''
 })
 
 const step = ref(1)
@@ -115,8 +131,26 @@ const prevStep = () => {
   step.value = 1
 }
 
-const submitForm = () => {
-  // Logique de soumission du formulaire
+const submitForm = async () => {
+  try {
+    const response = await axios.post('http://localhost:3000/buyer/create', {
+      first_name: form.firstName,
+      last_name: form.name,
+      email: form.email,
+      phone: form.phone,
+      company_name: form.company,
+      buyer_type: form.buyerType,
+      target_naf: form.targetSector,
+      target_nb_collaborator: form.targetEmployees,
+      target_location: form.targetLocation,
+      target_average_turnover: form.averageRevenue,
+      funds_available: form.fundsAvailable,
+      other_information: form.otherInformation,
+      target_acquisition_calendar: form.targetAcquisitionCalendar
+    })
+  } catch (error) {
+    console.error('Error submitting form:', error)
+  }
 }
 
 const progressBarClass = computed(() => {

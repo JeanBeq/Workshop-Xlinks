@@ -12,32 +12,40 @@
               <form @submit.prevent="submitForm">
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div class="mb-4">
-                    <label for="companyValue" class="block text-gray-700 text-sm font-bold mb-2">Valeur estimée de l'entreprise</label>
-                    <input v-model="form.companyValue" type="number" id="companyValue" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                    <label for="firstName" class="block text-gray-700 text-sm font-bold mb-2">Prénom</label>
+                    <input v-model="form.firstName" type="text" id="firstName" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
                   </div>
                   <div class="mb-4">
-                    <label for="sector" class="block text-gray-700 text-sm font-bold mb-2">Secteur d'activité</label>
-                    <input v-model="form.sector" type="text" id="sector" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                    <label for="lastName" class="block text-gray-700 text-sm font-bold mb-2">Nom</label>
+                    <input v-model="form.lastName" type="text" id="lastName" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
                   </div>
                   <div class="mb-4">
-                    <label for="nafCode" class="block text-gray-700 text-sm font-bold mb-2">Code NAF</label>
-                    <input v-model="form.nafCode" type="text" id="nafCode" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                    <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email</label>
+                    <input v-model="form.email" type="email" id="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
                   </div>
                   <div class="mb-4">
-                    <label for="employeeSize" class="block text-gray-700 text-sm font-bold mb-2">Taille d’effectif</label>
-                    <input v-model="form.employeeSize" type="number" id="employeeSize" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                    <label for="phone" class="block text-gray-700 text-sm font-bold mb-2">Téléphone</label>
+                    <input v-model="form.phone" type="tel" id="phone" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                  </div>
+                  <div class="mb-4">
+                    <label for="companyName" class="block text-gray-700 text-sm font-bold mb-2">Nom de l'entreprise</label>
+                    <input v-model="form.companyName" type="text" id="companyName" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                  </div>
+                  <div class="mb-4">
+                    <label for="naf" class="block text-gray-700 text-sm font-bold mb-2">Code NAF</label>
+                    <input v-model="form.naf" type="text" id="naf" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                  </div>
+                  <div class="mb-4">
+                    <label for="nbCollaborator" class="block text-gray-700 text-sm font-bold mb-2">Nombre de collaborateurs</label>
+                    <input v-model="form.nbCollaborator" type="number" id="nbCollaborator" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
                   </div>
                   <div class="mb-4">
                     <label for="location" class="block text-gray-700 text-sm font-bold mb-2">Localisation de l’entreprise</label>
                     <input v-model="form.location" type="text" id="location" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
                   </div>
                   <div class="mb-4">
-                    <label for="revenue" class="block text-gray-700 text-sm font-bold mb-2">Niveau de CA</label>
-                    <input v-model="form.revenue" type="number" id="revenue" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
-                  </div>
-                  <div class="mb-4 sm:col-span-2">
-                    <label for="tc" class="block text-gray-700 text-sm font-bold mb-2">TC</label>
-                    <input v-model="form.tc" type="text" id="tc" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                    <label for="averageTurnover" class="block text-gray-700 text-sm font-bold mb-2">Niveau moyen de CA</label>
+                    <input v-model="form.averageTurnover" type="number" id="averageTurnover" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
                   </div>
                 </div>
                 <div class="flex items-center justify-between">
@@ -56,18 +64,40 @@
 
 <script setup>
 import { reactive } from 'vue'
+import axios from 'axios'
 
 const form = reactive({
-  companyValue: '',
-  sector: '',
-  nafCode: '',
-  employeeSize: '',
+  firstName: '',
+  lastName: '',
+  email: '',
+  phone: '',
+  companyName: '',
+  naf: '',
+  nbCollaborator: '',
   location: '',
-  revenue: '',
-  tc: ''
+  averageTurnover: '',
+  price: '',
+  dateOffre: ''
 })
 
-const submitForm = () => {
-  // Logique de soumission du formulaire
+const submitForm = async () => {
+  try {
+    const response = await axios.post('http://localhost:3000/company/create', {
+      first_name: form.firstName,
+      last_name: form.lastName,
+      email: form.email,
+      phone: form.phone,
+      company_name: form.companyName,
+      naf: form.naf,
+      nb_collaborator: form.nbCollaborator,
+      location: form.location,
+      average_turnover: form.averageTurnover,
+      price: form.price,
+      date_offre: form.dateOffre
+    })
+    console.log('Form submitted successfully:', response.data)
+  } catch (error) {
+    console.error('Error submitting form:', error)
+  }
 }
 </script>
