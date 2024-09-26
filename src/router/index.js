@@ -4,6 +4,7 @@ import AcquereurForm from '../views/AcquereurForm.vue'
 import CedantForm from '../views/CedantForm.vue'
 import CedantDashboard from "@/views/cedantDashboard.vue";
 import AcquereurDashboard from "@/views/acquereurDashboard.vue";
+import EmailTemplate from "@/views/EmailTemplate.vue";
 
 const routes = [
   {
@@ -30,6 +31,11 @@ const routes = [
     path: '/acquereur-dashboard',
     name: 'Dashboard acquereur',
     component: AcquereurDashboard
+  },
+  {
+    path: '/email',
+    name: 'Email',
+    component: EmailTemplate
   }
 ]
 
