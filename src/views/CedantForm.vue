@@ -47,6 +47,14 @@
                     <label for="averageTurnover" class="block text-gray-700 text-sm font-bold mb-2">Niveau moyen de CA</label>
                     <input v-model="form.averageTurnover" type="number" id="averageTurnover" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
                   </div>
+                  <div class="mb-4">
+                    <label for="price" class="block text-gray-700 text-sm font-bold mb-2">Prix</label>
+                    <input v-model="form.price" type="number" id="price" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                  </div>
+                  <div class="mb-4">
+                    <label for="dateOffre" class="block text-gray-700 text-sm font-bold mb-2">Date de l'offre</label>
+                    <input v-model="form.dateOffre" type="date" id="dateOffre" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                  </div>
                 </div>
                 <div class="flex items-center justify-between">
                   <button type="submit" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
@@ -80,6 +88,20 @@ const form = reactive({
   dateOffre: ''
 })
 
+const resetForm = () => {
+  form.firstName = ''
+  form.lastName = ''
+  form.email = ''
+  form.phone = ''
+  form.companyName = ''
+  form.naf = ''
+  form.nbCollaborator = ''
+  form.location = ''
+  form.averageTurnover = ''
+  form.price = ''
+  form.dateOffre = ''
+}
+
 const submitForm = async () => {
   try {
     const response = await axios.post('http://localhost:3000/company/create', {
@@ -95,7 +117,10 @@ const submitForm = async () => {
       price: form.price,
       date_offre: form.dateOffre
     })
-    console.log('Form submitted successfully:', response.data)
+    if (response.status === 200) {
+      console.log('Form submitted successfully:', response.data)
+      resetForm()
+    }
   } catch (error) {
     console.error('Error submitting form:', error)
   }
