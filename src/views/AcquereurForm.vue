@@ -131,6 +131,22 @@ const prevStep = () => {
   step.value = 1
 }
 
+const resetForm = () => {
+  form.name = ''
+  form.firstName = ''
+  form.company = ''
+  form.email = ''
+  form.phone = ''
+  form.buyerType = ''
+  form.targetSector = ''
+  form.targetEmployees = ''
+  form.targetLocation = ''
+  form.averageRevenue = ''
+  form.fundsAvailable = ''
+  form.otherInformation = ''
+  form.targetAcquisitionCalendar = ''
+}
+
 const submitForm = async () => {
   try {
     const response = await axios.post('http://localhost:3000/buyer/create', {
@@ -148,6 +164,9 @@ const submitForm = async () => {
       other_information: form.otherInformation,
       target_acquisition_calendar: form.targetAcquisitionCalendar
     })
+    if (response.status === 200) {
+      resetForm()
+    }
   } catch (error) {
     console.error('Error submitting form:', error)
   }
