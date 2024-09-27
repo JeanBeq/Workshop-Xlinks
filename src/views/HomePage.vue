@@ -17,7 +17,6 @@
       </div>
     </section>
 
-
     <section id="dossiers" class="py-20 mx-auto w-fit">
       <h2 class="text-3xl font-bold mb-6">Des dossiers qualifiés</h2>
       <div class="grid md:grid-cols-2 gap-8">
